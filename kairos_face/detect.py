@@ -19,7 +19,8 @@ def detect_face(url=None, file=None, additional_arguments={}):
     response = requests.post(_detect_base_url, json=payload, headers=auth_headers)
     json_response = response.json()
     if response.status_code != 200 or 'Errors' in json_response:
-        raise exceptions.ServiceRequestError(response.status_code, json_response, payload)
+        #return exceptions.ServiceRequestError(response.status_code, json_response, payload)
+        return "Error"
 
     return json_response
 
